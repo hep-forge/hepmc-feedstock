@@ -33,6 +33,7 @@ requirements:
   host:
     - zlib
     - bzip2
+    - xz
 
 test:
   source_files:
