@@ -26,7 +26,7 @@ build:
 
 requirements:
   build:
-    - {{ stdlib("c") }}
+    - {{ compiler("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make
@@ -38,7 +38,7 @@ test:
   source_files:
     - source/test
   requires:
-    - {{ stdlib("c") }}
+    - {{ compiler("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
   commands:
