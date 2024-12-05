@@ -1,0 +1,67 @@
+{% set versions = {
+    "3.3.0": "6f876091edcf7ee6d0c0db04e080056e89efc1a61abe62355d97ce8e735769d6"
+} %}
+
+{% set version = environ.get('COMMIT_VERSION', None) %}
+{% set version = version or versions.keys()|first %}
+{% set version = version|string %}
+
+package:
+  name: {{ environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower }}
+  version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
+
+source:
+  url: https://gitlab.cern.ch/hepmc/HepMC3/-/archive/{{ version }}/HepMC3-{{ version }}.tar.gz
+  {% if versions.get(version, None) %}
+  sha256: {{ versions.get(version) }}
+  {% endif %}
+  folder: source
+  patches:
+    # c.f. https://gitlab.cern.ch/hepmc/HepMC3/-/merge_requests/360
+    - 0001-fallback-to-readlink-if-macOS-missing-greadlink.patch  # [osx]
+
+build:
+  number: 0
+  skip: true  # [win]
+
+requirements:
+  build:
+    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - make
+  host:
+    - zlib
+    - bzip2
+
+test:
+  source_files:
+    - source/test
+  requires:
+    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+  commands:
+
+    - HepMC3-config --prefix
+    - HepMC3-config --cxxflags
+    - HepMC3-config --ldflags
+    - HepMC3-config --libdir
+
+    - cd source/test
+    - ${CXX} -std=c++11 testMass.cc -o testMass $(HepMC3-config --cxxflags --ldflags) -Wl,-rpath,"$(HepMC3-config --libdir)"
+    - ./testMass
+
+about:
+  home: https://hepmc.web.cern.ch/hepmc/
+  license: GPL-3.0-or-later
+  license_file: source/COPYING
+  summary: HepMC3 is a new rewrite of HepMC event record.
+  description: |
+    HepMC3 is a new rewrite of HepMC event record. It uses shared pointers
+    for in-memory navigation and the POD concept for the persistency.
+  dev_url: https://gitlab.cern.ch/hepmc/HepMC3
+
+extra:
+  recipe-maintainers:
+    - meiyasan
