@@ -33,6 +33,8 @@ requirements:
     - make
   host:
     - zlib
+    - libstdcxx-ng
+    - {{ stdlib("c") }}
     - bzip2
     - xz
     - root
