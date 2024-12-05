@@ -1,7 +1,7 @@
-About hepmc3-feedstock
-======================
+About hepmc-feedstock
+=====================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hepmc3-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hepmc-feedstock/blob/main/LICENSE.txt)
 
 Home: https://hepmc.web.cern.ch/hepmc/
 
@@ -26,8 +26,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6650&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc3-feedstock?branchName=main">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -35,36 +35,36 @@ Current build status
           <tbody><tr>
               <td>linux_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6650&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc3-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_aarch64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6650&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc3-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_ppc64le</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6650&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc3-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6650&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc3-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_arm64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6650&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc3-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hepmc-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -80,53 +80,53 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-hepmc3-green.svg)](https://anaconda.org/conda-forge/hepmc3) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hepmc3.svg)](https://anaconda.org/conda-forge/hepmc3) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hepmc3.svg)](https://anaconda.org/conda-forge/hepmc3) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hepmc3.svg)](https://anaconda.org/conda-forge/hepmc3) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-hepmc-green.svg)](https://anaconda.org/conda-forge/hepmc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hepmc.svg)](https://anaconda.org/conda-forge/hepmc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hepmc.svg)](https://anaconda.org/conda-forge/hepmc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hepmc.svg)](https://anaconda.org/conda-forge/hepmc) |
 
-Installing hepmc3
-=================
+Installing hepmc
+================
 
-Installing `hepmc3` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `hepmc` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `hepmc3` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `hepmc` can be installed with `conda`:
 
 ```
-conda install hepmc3
-```
-
-or with `mamba`:
-
-```
-mamba install hepmc3
-```
-
-It is possible to list all of the versions of `hepmc3` available on your platform with `conda`:
-
-```
-conda search hepmc3 --channel conda-forge
+conda install hepmc
 ```
 
 or with `mamba`:
 
 ```
-mamba search hepmc3 --channel conda-forge
+mamba install hepmc
+```
+
+It is possible to list all of the versions of `hepmc` available on your platform with `conda`:
+
+```
+conda search hepmc --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search hepmc --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search hepmc3 --channel conda-forge
+mamba repoquery search hepmc --channel conda-forge
 
-# List packages depending on `hepmc3`:
-mamba repoquery whoneeds hepmc3 --channel conda-forge
+# List packages depending on `hepmc`:
+mamba repoquery whoneeds hepmc --channel conda-forge
 
-# List dependencies of `hepmc3`:
-mamba repoquery depends hepmc3 --channel conda-forge
+# List dependencies of `hepmc`:
+mamba repoquery depends hepmc --channel conda-forge
 ```
 
 
@@ -171,17 +171,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating hepmc3-feedstock
-=========================
+Updating hepmc-feedstock
+========================
 
-If you would like to improve the hepmc3 recipe or build a new
+If you would like to improve the hepmc recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/hepmc3-feedstock are
+Note that all branches in the conda-forge/hepmc-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
@@ -196,7 +196,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@chrisburr](https://github.com/chrisburr/)
-* [@gartung](https://github.com/gartung/)
-* [@henryiii](https://github.com/henryiii/)
+* [@meiyasan](https://github.com/meiyasan/)
 
