@@ -1,5 +1,5 @@
 {% set versions = {
-    "3.3.0": "6f876091edcf7ee6d0c0db04e080056e89efc1a61abe62355d97ce8e735769d6"
+    "2.06.11": "ceaced62d39e4e2a1469fa2f20662d4d370279b3209930250766db02f44ae8de"
 } %}
 
 {% set version = environ.get('COMMIT_VERSION', None) %}
@@ -11,57 +11,60 @@ package:
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
 source:
-  url: https://gitlab.cern.ch/hepmc/HepMC3/-/archive/{{ version }}/HepMC3-{{ version }}.tar.gz
+  url: "https://gitlab.cern.ch/hepmc/HepMC/-/archive/{{ version }}/HepMC-{{ version }}.tar.gz"
   {% if versions.get(version, None) %}
   sha256: {{ versions.get(version) }}
   {% endif %}
   folder: source
-  patches:
-    # c.f. https://gitlab.cern.ch/hepmc/HepMC3/-/merge_requests/360
-    - 0001-fallback-to-readlink-if-macOS-missing-greadlink.patch  # [osx]
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 3
+  skip: True  # [win]
 
 requirements:
   build:
-    - {{ stdlib("c") }}
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - make
-  host:
-    - zlib
-    - bzip2
+
 
 test:
   source_files:
-    - source/test
+    - source/examples
   requires:
-    - {{ stdlib("c") }}
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
+    - {{ stdlib("c") }}
   commands:
-
-    - HepMC3-config --prefix
-    - HepMC3-config --cxxflags
-    - HepMC3-config --ldflags
-    - HepMC3-config --libdir
-
-    - cd source/test
-    - ${CXX} -std=c++11 testMass.cc -o testMass $(HepMC3-config --cxxflags --ldflags) -Wl,-rpath,"$(HepMC3-config --libdir)"
-    - ./testMass
+    # Workaround for lack of CONDA_BUILD_SYSROOT variable in staged recipes
+    - cd source/examples
+    # example_UsingIterators
+    - ${CXX} example_UsingIterators.cc -o example_UsingIterators -I${CONDA_PREFIX}/include -L${CONDA_PREFIX}/lib -lHepMC
+    # example_EventSelection
+    - ${CXX} example_EventSelection.cc -o example_EventSelection -I${CONDA_PREFIX}/include -L${CONDA_PREFIX}/lib -lHepMC
+    # example_BuildEventFromScratch
+    - ${CXX} example_BuildEventFromScratch.cc -o example_BuildEventFromScratch -I${CONDA_PREFIX}/include -L${CONDA_PREFIX}/lib -lHepMC
 
 about:
-  home: https://hepmc.web.cern.ch/hepmc/
-  license: GPL-3.0-or-later
-  license_file: source/COPYING
-  summary: HepMC3 is a new rewrite of HepMC event record.
+  home: http://hepmc.web.cern.ch/hepmc/
+  license: LGPL-2.1-or-later
+  license_family: LGPL
+  license_file: source/INSTALL
+  summary: 'HepMC - a C++ Event Record for Monte Carlo Generators'
+
   description: |
-    HepMC3 is a new rewrite of HepMC event record. It uses shared pointers
-    for in-memory navigation and the POD concept for the persistency.
-  dev_url: https://gitlab.cern.ch/hepmc/HepMC3
+           The HepMC package is an object oriented, C++ event record
+           for High Energy Physics Monte Carlo generators and simulation.
+           The original code was written by M. Dobbs and J.B. Hansen
+            (Comput. Phys. Commun. 134 (2001) 41). Since the first
+           implementation, the package has undergone several modifications
+           and in particular, the latest HepMC3 series is a completely new
+           re-write using currently available C++11 techniques.
 
 extra:
   recipe-maintainers:
-    - meiyasan
+    - gartung
+    - chrisburr
+    - henryiii
