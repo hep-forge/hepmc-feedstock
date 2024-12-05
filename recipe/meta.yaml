@@ -34,6 +34,9 @@ requirements:
     - zlib
     - bzip2
     - xz
+    - root
+  run:
+    - root
 
 test:
   source_files:
