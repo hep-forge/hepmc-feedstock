@@ -26,8 +26,9 @@ build:
 
 requirements:
   build:
-    - {{ stdlib("c") }}
+    - {{ compiler("c") }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - make
   host:
@@ -38,9 +39,10 @@ test:
   source_files:
     - source/test
   requires:
-    - {{ stdlib("c") }}
-    - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler("c") }}
+    - {{ stdlib("c") }}
   commands:
 
     - HepMC3-config --prefix
