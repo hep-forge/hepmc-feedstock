@@ -32,6 +32,7 @@ requirements:
     - cmake
     - make
   host:
+    - {{ stdlib("c") }}
     - zlib-ng
     - bzip2
     - xz
