@@ -32,10 +32,13 @@ requirements:
     - cmake
     - make
   host:
-    - zlib
+    - zlib-ng
     - bzip2
     - xz
     - root
+    - libstdcxx-ng
+    - libcxx
+
   run:
     - root
 
