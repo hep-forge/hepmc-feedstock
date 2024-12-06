@@ -1,0 +1,29 @@
+From d14d79a84a9138e7bb1c51aabaf3992d59f41136 Mon Sep 17 00:00:00 2001
+From: Marco Meyer-Conde <marco.meyerconde@gmail.com>
+Date: Fri, 6 Dec 2024 03:31:38 +0000
+Subject: [PATCH] pythia6
+
+---
+ examples/CMakeLists.txt | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index 7ccb03f..d56899f 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -99,11 +99,7 @@ if (CMAKE_Fortran_COMPILER)
+   else()
+   endif()
+   message(STATUS "HepMC3 examples: CMAKE_Fortran_FLAGS ${CMAKE_Fortran_FLAGS}")
+-  if (CMAKE_GENERATOR MATCHES "Visual Studio")
+-    message(STATUS "HepMC3: Visual Studio does not support targets with mixed code, please use e.g. NMake Files.")
+-  else()
+-    add_subdirectory(Pythia6Example)
+-  endif()
++  message(STATUS "HepMC3: Pythia6 examples are manually disabled in conda-build"
+ else()
+   message(STATUS "HepMC3 examples: Fortran compiler not found, Pythia6 example disabled")
+ endif()
+-- 
+2.47.1
+

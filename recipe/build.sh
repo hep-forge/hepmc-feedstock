@@ -19,4 +19,6 @@ cmake -LAH \
 
 cmake --build build --parallel "${CPU_COUNT}"
 cmake --install build
+
+cd build
 ctest

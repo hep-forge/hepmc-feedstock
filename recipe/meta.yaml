@@ -18,7 +18,8 @@ source:
   folder: source
   patches:
     # c.f. https://gitlab.cern.ch/hepmc/HepMC3/-/merge_requests/360
-    - 0001-fallback-to-readlink-if-macOS-missing-greadlink.patch  # [osx]
+    - patches/readlink-macOS.patch  # [osx]
+    - patches/pythia6.patch  # [osx]
 
 build:
   number: 0
