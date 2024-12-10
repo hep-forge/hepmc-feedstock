@@ -19,7 +19,7 @@ source:
   patches:
     # c.f. https://gitlab.cern.ch/hepmc/HepMC3/-/merge_requests/360
     - patches/readlink-macOS.patch  # [osx]
-    - patches/pythia6.patch  # [osx]
+    - patches/pythia6.patch
 
 build:
   number: 0
