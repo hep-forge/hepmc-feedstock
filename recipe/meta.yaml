@@ -34,15 +34,17 @@ requirements:
     - make
   host:
     - {{ stdlib("c") }}
+    - libstdcxx-ng
+    - libcxx
     - zlib-ng
     - bzip2
     - xz
     - root
-    - libstdcxx-ng
-    - libcxx
+    - pythia>=8.3
 
   run:
     - root
+    - pythia>=8.3
 
 test:
   source_files:
