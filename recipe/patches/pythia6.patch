@@ -20,7 +20,7 @@ index 7ccb03f..d56899f 100644
 -  else()
 -    add_subdirectory(Pythia6Example)
 -  endif()
-+  message(STATUS "HepMC3: Pythia6 examples are manually disabled in conda-build"
++  message(STATUS "HepMC3: Pythia6 examples are manually disabled in conda-build")
  else()
    message(STATUS "HepMC3 examples: Fortran compiler not found, Pythia6 example disabled")
  endif()
