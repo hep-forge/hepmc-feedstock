@@ -20,5 +20,7 @@ cmake -LAH \
 cmake --build build --parallel "${CPU_COUNT}"
 cmake --install build
 
+[ -f "${PREFIX}/lib/libHepMC3.so" ] && ln -sf libHepMC3.so ${PREFIX}/lib/libHepMC.so
+
 cd build
 ctest
