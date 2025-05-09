@@ -22,3 +22,17 @@ cmake --install build
 
 cd build
 ctest
+
+cd "$PREFIX/lib" || exit 1
+
+for lib in libHepMC*; do
+    base=$(basename "$lib")
+    newname="libHepMC3${base#libHepMC}"
+    ln -sf "$base" "$newname"
+done
+
+for lib in libHepMCfio*; do
+    base=$(basename "$lib")
+    newname="libHepMCfio3${base#libHepMCfio}"
+    ln -sf "$base" "$newname"
+done
