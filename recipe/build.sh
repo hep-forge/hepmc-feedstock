@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+PYTHON_VERSION=$(${PREFIX}/bin/python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+PYTHON_VERSION_NO_DOT=$(echo "$PYTHON_VERSION" | tr -d '.')
+
+SITEARCH=$(${PREFIX}/bin/python -c "import sysconfig; print(sysconfig.get_path('platlib'))")
+
+
 cmake -LAH -S source -B build \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DPYTHIA8_ROOT_DIR=${PREFIX} \
@@ -9,7 +15,9 @@ cmake -LAH -S source -B build \
     -DHEPMC3_BUILD_EXAMPLES=ON \
     -DHEPMC3_ENABLE_TEST=ON \
     -DHEPMC3_ENABLE_PYTHON=ON \
-    -DHEPMC3_INSTALL_INTERFACES=ON
+    -DHEPMC3_INSTALL_INTERFACES=ON \
+    -DHEPMC3_PYTHON_VERSIONS="${PYTHON_VERSION}" \
+    -DHEPMC3_Python_SITEARCH${PYTHON_VERSION_NO_DOT}="${SITEARCH}"
 
 cmake --build build --parallel "${CPU_COUNT}"
 cmake --install build
