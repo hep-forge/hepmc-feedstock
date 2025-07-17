@@ -4,18 +4,19 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-cmake -LAH \
-    -DCMAKE_BUILD_TYPE=${CMAKE_PLATFORM_FLAGS[@]+"${CMAKE_PLATFORM_FLAGS[@]}"} \
+PYTHON_VERSION=$($PYTHON -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+
+cmake -LAH -S source -B build \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    -DHEPMC3_ENABLE_PROTOBUFIO=OFF \
+    -DHEPMC3_BUILD_DOCS=OFF \
     -DHEPMC3_ENABLE_ROOTIO=ON \
-    -DHEPMC3_ENABLE_PYTHON=ON \
-    -DHEPMC3_BUILD_DOCS=ON \
     -DHEPMC3_BUILD_EXAMPLES=ON \
     -DHEPMC3_ENABLE_TEST=ON \
-    -DHEPMC3_ENABLE_PROTOBUFIO=OFF \
-    -DHEPMC3_INSTALL_INTERFACES=ON \
-    -S source \
-    -B build
+    -DHEPMC3_ENABLE_PYTHON=ON \
+    -DHEPMC3_PYTHON_VERSIONS=${PYTHON_VERSION}
+    -DHEPMC3_Python_SITEARCH=$PREFIX/lib/python${PYTHON_VERSION}/site-packages
+    -DHEPMC3_INSTALL_INTERFACES=ON
 
 cmake --build build --parallel "${CPU_COUNT}"
 cmake --install build
