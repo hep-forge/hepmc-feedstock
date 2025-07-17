@@ -4,16 +4,16 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# ROOTIO is currently off, this could be added after ROOT adds a root-base formula
-
 cmake -LAH \
     -DCMAKE_BUILD_TYPE=${CMAKE_PLATFORM_FLAGS[@]+"${CMAKE_PLATFORM_FLAGS[@]}"} \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
-    -DHEPMC3_ENABLE_ROOTIO=OFF \
-    -DHEPMC3_ENABLE_PYTHON=OFF \
+    -DHEPMC3_ENABLE_ROOTIO=ON \
+    -DHEPMC3_ENABLE_PYTHON=ON \
     -DHEPMC3_BUILD_DOCS=ON \
     -DHEPMC3_BUILD_EXAMPLES=ON \
     -DHEPMC3_ENABLE_TEST=ON \
+    -DHEPMC3_ENABLE_PROTOBUFIO=ON \
+    -DHEPMC3_INSTALL_INTERFACES=ON \
     -S source \
     -B build
 
