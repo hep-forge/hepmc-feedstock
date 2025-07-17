@@ -27,24 +27,29 @@ build:
 
 requirements:
   build:
+    - python
     - {{ compiler("c") }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - cmake<4
     - make
   host:
+    - python
+    - {{ compiler("c") }}
+    - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
-    - libstdcxx-ng
-    - libcxx
     - zlib-ng
     - bzip2
     - xz
     - root
     - pythia>=8.3
+    - protobuf
 
   run:
+    - python
     - root
     - pythia>=8.3
+    - protobuf
 
 test:
   source_files:
