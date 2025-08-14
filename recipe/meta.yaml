@@ -7,7 +7,7 @@
 {% set version = version or versions.keys()|first %}
 {% set version = version|string %}
 
-{% set version_major = int(version.split('.')[0]) %}
+{% set version_major = version.split('.')[0] | int %}
 
 package:
   name: {{ environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower }}
