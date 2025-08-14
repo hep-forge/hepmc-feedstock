@@ -1,4 +1,5 @@
 {% set versions = {
+    "2.06.11": 
     "3.3.0": "6f876091edcf7ee6d0c0db04e080056e89efc1a61abe62355d97ce8e735769d6"
 } %}
 
@@ -6,21 +7,29 @@
 {% set version = version or versions.keys()|first %}
 {% set version = version|string %}
 
+{% set version_major = int(version.split('.')[0]) %}
+
 package:
   name: {{ environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower }}
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
 source:
+  {% if version_major < 3 %}
+  url: https://gitlab.cern.ch/hepmc/HepMC/-/archive/{{ version }}/HepMC-{{ version }}.tar.gz
+  {% else %}
   url: https://gitlab.cern.ch/hepmc/HepMC3/-/archive/{{ version }}/HepMC3-{{ version }}.tar.gz
+  {% endif %}
   {% if versions.get(version, None) %}
   sha256: {{ versions.get(version) }}
   {% endif %}
   folder: source
   patches:
+    {% if version_major >= 3 %}
     # c.f. https://gitlab.cern.ch/hepmc/HepMC3/-/merge_requests/360
     - patches/readlink-macOS.patch  # [osx]
     - patches/pythia6.patch
     - patches/python3-fix.patch
+    {% endif %}
 
 build:
   number: 0
