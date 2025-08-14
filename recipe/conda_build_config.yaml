@@ -8,8 +8,12 @@ c_stdlib_version:              # [unix]
 
 python:
   - 3.10.* *_cpython
-  - 3.11.* *_cpython
   - 3.12.* *_cpython
 
-packages:
-  - numpy
+root:
+  - 6.32
+  - 6.34
+
+zip_keys:
+  - python
+  - root
