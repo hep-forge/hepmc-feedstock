@@ -9,6 +9,11 @@
 
 {% set version_major = version.split('.')[0] | int %}
 
+{% set root = root if root else "0" %}
+build:
+  number: 0
+  string: "root{{ root.replace('.', '') }}"
+
 package:
   name: {{ environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower }}
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
