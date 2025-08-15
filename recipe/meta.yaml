@@ -13,6 +13,7 @@
 build:
   number: 0
   string: "root{{ root.replace('.', '') }}"
+  skip: true  # [win]
 
 package:
   name: {{ environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower }}
@@ -35,10 +36,6 @@ source:
     - patches/pythia6.patch
     - patches/python3-fix.patch
     {% endif %}
-
-build:
-  number: 0
-  skip: true  # [win]
 
 requirements:
   build:
