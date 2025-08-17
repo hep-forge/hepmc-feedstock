@@ -40,34 +40,25 @@ source:
 requirements:
   build:
     - python
-    - {{ compiler('fortran') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler("c") }}
-    - {{ stdlib("c") }}
+    - root {{ root }}.*
     - cmake<4
     - make
   host:
-    - python
+    - root {{ root }}.*
     - zlib
     - bzip2
     - zstd
     - xz
     - pythia>=8.3
-    - root
-
   run:
-    - python
+    - root {{ root }}.*
     - pythia>=8.3
-    - root
 
 test:
   source_files:
     - source/test
   requires:
-    - {{ compiler('fortran') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler("c") }}
-    - {{ stdlib("c") }}
+    - root {{ root }}.*
   commands:
 
     - HepMC3-config --prefix
