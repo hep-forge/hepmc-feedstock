@@ -9,7 +9,6 @@
 
 {% set version_major = version.split('.')[0] | int %}
 
-{% set root = root if root else "0" %}
 build:
   number: 0
   string: "root{{ root.replace('.', '') }}"
