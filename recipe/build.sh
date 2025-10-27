@@ -20,7 +20,7 @@ cmake -LAH -S source -B build \
     -DHEPMC3_ENABLE_PYTHON=ON \
     -DHEPMC3_INSTALL_INTERFACES=ON \
     -DHEPMC3_PYTHON_VERSIONS="${PYTHON_VERSION}" \
-    -Dmomentum:STRING="GEV" \
+    -Dmomentum:STRING="GEV" -Dlength:STRING=CM \
     -DHEPMC3_Python_SITEARCH${PYTHON_VERSION_NO_DOT}="${SITEARCH}"
 
 cmake --build build --parallel "${CPU_COUNT}"
