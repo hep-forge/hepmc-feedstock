@@ -53,6 +53,7 @@ requirements:
     - root {{ root }}.*
     - pythia>=8.3
 
+{% if version_major >= 3 %}
 test:
   source_files:
     - source/test
@@ -68,6 +69,7 @@ test:
     - cd source/test
     - ${CXX} -std=c++11 testMass.cc -o testMass $(HepMC3-config --cxxflags --ldflags) -Wl,-rpath,"$(HepMC3-config --libdir)"
     - ./testMass
+{% endif %}
 
 about:
   home: https://hepmc.web.cern.ch/hepmc/
