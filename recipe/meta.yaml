@@ -8,10 +8,11 @@
 {% set version = version|string %}
 
 {% set version_major = version.split('.')[0] | int %}
+{% set root_tag = (root or '')|replace('.', '') %}
 
 build:
   number: 0
-  string: "root{{ root.replace('.', '') }}"
+  string: "root{{ root_tag }}"
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name, max_pin="x.x.x") }}
