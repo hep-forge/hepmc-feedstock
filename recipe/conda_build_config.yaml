@@ -6,16 +6,7 @@ c_stdlib_version:              # [unix]
   - 2.17                       # [linux]
   - 11.0                       # [osx]
 
-python:
-  - 3.10.* *_cpython
-  - 3.10.* *_cpython
-  - 3.10.* *_cpython
-
 root:
   - 6.32
   - 6.34
   - 6.36
-
-zip_keys:
-  - python
-  - root
