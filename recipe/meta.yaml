@@ -1,3 +1,5 @@
+{% set name = environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower %}
+
 {% set versions = {
     "3.3.1": "08240160b0f28dc3293aa4d61ce65e2d67cd597acf6faca439f2e46625f7e793"
 } %}
@@ -17,7 +19,7 @@ build:
     - {{ pin_subpackage(name, max_pin="x.x.x") }}
 
 package:
-  name: {{ environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower }}
+  name: {{ name }}
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
 source:
