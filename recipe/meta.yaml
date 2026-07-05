@@ -38,6 +38,16 @@ source:
     - patches/readlink-macOS.patch  # [osx]
     - patches/pythia6.patch
     - patches/python3-fix.patch
+    # rootIO/CMakeLists.txt appends ${ROOT_INCLUDE_DIRS} to
+    # HepMC3rootIO's PUBLIC include dirs with no $<BUILD_INTERFACE:...>
+    # guard (unlike the three entries right above it) -- root is listed
+    # in both build: and host: here (rootcling needs a native ROOT), so
+    # ROOTSYS/ROOT_INCLUDE_DIRS resolves to BUILD_PREFIX at configure
+    # time, and that transient path gets baked permanently into the
+    # installed HepMC3rootIOTargets.cmake. Every downstream consumer of
+    # HepMC3::rootIO (afterburner, hepmc-merger, eventually EICrecon)
+    # then fails to configure once BUILD_PREFIX is gone.
+    - patches/rootio-relocatable-include.patch
     {% endif %}
 
 requirements:
