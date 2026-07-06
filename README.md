@@ -15,8 +15,8 @@ HepMC3 is a new rewrite of HepMC event record.
 
 | Architecture | Latest published |
 |--------------|------------------|
-| linux-amd64 (`linux-64`) | ✅ `3.3.0` |
-| linux-arm64 (`linux-aarch64`) | ❌ not published |
+| linux-amd64 (`linux-64`) | ✅ `3.3.1` |
+| linux-arm64 (`linux-aarch64`) | ✅ `3.3.1` |
 
 _As of the last feedstock render; the badges above are live._
 
