@@ -17,6 +17,8 @@ c_stdlib_version:              # [unix]
 
 # 6.36 dropped: 6.36.04 was only ever published for linux-64 (no
 # linux-aarch64 build), so this variant slot was unconditionally
-# unsatisfiable on arm64.
+# unsatisfiable on arm64. Bumped 6.34 -> 6.38 to match edm4hep/podio
+# (dd4hep needs hepmc/edm4hep/podio all built against the same root
+# build-string tag to satisfy its own `pkg * root{{ root_tag }}` pins).
 root:
-  - 6.34
+  - 6.38
