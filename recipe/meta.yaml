@@ -1,7 +1,8 @@
 {% set name = environ.get('ANACONDA_PACKAGE', "hepmc")|string|lower %}
 
 {% set versions = {
-    "3.3.1": "08240160b0f28dc3293aa4d61ce65e2d67cd597acf6faca439f2e46625f7e793"
+    "3.3.1": "08240160b0f28dc3293aa4d61ce65e2d67cd597acf6faca439f2e46625f7e793",
+    "2.06.11": "ceaced62d39e4e2a1469fa2f20662d4d370279b3209930250766db02f44ae8de"
 } %}
 
 {% set version = environ.get('COMMIT_VERSION', None) %}
