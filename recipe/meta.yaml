@@ -99,6 +99,6 @@ about:
 extra:
   recipe-maintainers:
     - meiyasan
-  keep_versions:
+  lts:
     main:
       - "2.06.11"   # HepMC2 LTS line -- sherpa 2.2.x needs the classic HepMC/ headers, not HepMC3; newest-2 auto-trim would otherwise delete it
