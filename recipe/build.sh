@@ -9,7 +9,11 @@ SITEARCH=$(${PREFIX}/bin/python -c "import sysconfig; print(sysconfig.get_path('
 #CMake Error at CMakeLists.txt:26 (message):
 #  You must specify the momentum units with -Dmomentum:STRING=[MEV|GEV]
   
-cmake -LAH -S source -B build \
+# ${CMAKE_ARGS} carries conda-build's own -DCMAKE_BUILD_TYPE=Release
+# (plus toolchain/strip paths) -- omitting it leaves CMAKE_BUILD_TYPE
+# unset (this project's own CMakeLists.txt never defaults it either),
+# producing an unoptimized, unstripped debug-info binary.
+cmake -LAH -S source -B build ${CMAKE_ARGS} \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DPYTHIA8_ROOT_DIR=${PREFIX} \
     -DHEPMC3_ENABLE_PROTOBUFIO=OFF \
