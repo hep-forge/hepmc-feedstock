@@ -61,6 +61,17 @@ source:
 
 requirements:
   build:
+    # HepMC3 is a C++ library, but no compiler was ever declared here, so
+    # conda-build put none in the build env and the C++ sources were
+    # compiled by whatever gcc happened to exist on the CI runner
+    # (ubuntu-24.04 -> the distro's own gcc + glibc 2.39), not a conda
+    # toolchain. That also left the c_stdlib/c_stdlib_version pins in
+    # conda_build_config.yaml inert: they only take effect through a
+    # {{ stdlib('c') }} reference, so the sysroot 2.17 ABI floor this
+    # feedstock believed it had was never actually applied to the binaries.
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - python
     - root {{ root }}.*
     - cmake<4

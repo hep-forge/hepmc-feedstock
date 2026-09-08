@@ -22,3 +22,20 @@ c_stdlib_version:              # [unix]
 # build-string tag to satisfy its own `pkg * root{{ root_tag }}` pins).
 root:
   - 6.38
+
+# ---- Compiler floor (ABI)
+# Now that this recipe actually declares a compiler (see meta.yaml), pin
+# the major rather than inheriting conda-build's "newest available".
+# Unpinned, each rebuild silently takes whatever conda-forge shipped most
+# recently -- that is how minio-cpp moved from GCC 15 to 16 between two
+# rebuilds, published a libstdcxx >=16 run_export, and made its consumer
+# unsolvable against the GCC 15-built rest of the stack.
+# A floor, not a ceiling: raise per-package if the source needs newer.
+c_compiler_version:    # [linux]
+  - 14
+cxx_compiler_version:  # [linux]
+  - 14
+libgcc_version:        # [linux]
+  - 14.*
+libstdcxx_version:     # [linux]
+  - 14.*
