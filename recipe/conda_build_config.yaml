@@ -32,10 +32,10 @@ root:
 # unsolvable against the GCC 15-built rest of the stack.
 # A floor, not a ceiling: raise per-package if the source needs newer.
 c_compiler_version:    # [linux]
-  - 14
+  - 14                       # [linux]
 cxx_compiler_version:  # [linux]
-  - 14
+  - 14                       # [linux]
 libgcc_version:        # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 libstdcxx_version:     # [linux]
-  - 14.*
+  - 14.*                     # [linux]
