@@ -13,7 +13,15 @@ SITEARCH=$(${PREFIX}/bin/python -c "import sysconfig; print(sysconfig.get_path('
 # (plus toolchain/strip paths) -- omitting it leaves CMAKE_BUILD_TYPE
 # unset (this project's own CMakeLists.txt never defaults it either),
 # producing an unoptimized, unstripped debug-info binary.
-cmake -LAH -S source -B build ${CMAKE_ARGS} \
+# macOS: conda's LDFLAGS already give every library an LC_RPATH to
+# $PREFIX/lib; CMake's install step then adds the same one and the newer
+# install_name_tool refuses a duplicate. Let the LDFLAGS one stand.
+EXTRA_ARGS=()
+if [[ "$(uname)" == "Darwin" ]]; then
+    EXTRA_ARGS+=(-DCMAKE_SKIP_INSTALL_RPATH=ON)
+fi
+
+cmake -LAH -S source -B build ${CMAKE_ARGS} "${EXTRA_ARGS[@]}" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DPYTHIA8_ROOT_DIR=${PREFIX} \
     -DHEPMC3_ENABLE_PROTOBUFIO=OFF \
