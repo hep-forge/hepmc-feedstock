@@ -94,6 +94,9 @@ test:
     - source/test
   requires:
     - root {{ root }}.*
+    # the test compiles testMass.cc; on Linux hep-forge's root brings a
+    # compiler along, conda-forge's root on macOS does not
+    - {{ compiler('cxx') }}  # [osx]
   commands:
 
     - HepMC3-config --prefix
