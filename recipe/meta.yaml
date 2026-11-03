@@ -82,11 +82,14 @@ requirements:
     - bzip2
     - zstd
     - xz
-    - pythia>=8.3
+    # pythia on Linux; on macOS ROOT is conda-forge's, which needs conda-forge's
+    # pythia8 (hep-forge pythia declares pythia8 <0 and cannot sit next to it)
+    - pythia>=8.3  # [linux]
+    - pythia8 >=8.3  # [osx]
   run:
     - root {{ root }}.*
-    - pythia>=8.3
-
+    - pythia>=8.3  # [linux]
+    - pythia8 >=8.3  # [osx]
 {% if version_major >= 3 %}
 test:
   source_files:
